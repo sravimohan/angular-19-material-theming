@@ -1,6 +1,8 @@
 nav {
-    background-color: #333;
     padding: 1rem;
+    font-size: var(--mat-sys-body-medium);
+    color: var(--mat-sys-primary);
+    background-color: var(--mat-sys-primary-container);
 }
 
 nav ul {
@@ -15,7 +17,6 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
     padding: 0.5rem 1rem;
     display: block;
@@ -23,10 +24,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #555;
+    color: var(--mat-sys-primary);
+    background-color: var(--mat-sys-surface);
     border-radius: 4px;
 }
 
 main {
- padding: 1rem;
+    padding: 1rem;
 }
