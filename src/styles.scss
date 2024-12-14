@@ -1,2 +1,19 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@use '@angular/material' as mat;
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    @include mat.theme((color: mat.$violet-palette,
+            typography: Roboto,
+            density: 0));
+}
+
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}

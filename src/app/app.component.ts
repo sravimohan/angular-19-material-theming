@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, effect, inject, signal } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +9,23 @@ import { RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Angular 19: Material Theming';
+
+  private readonly document = inject(DOCUMENT);
+
+  isDarkTheme = signal(false);
+
+  constructor() {
+    effect(() => {
+      if (this.isDarkTheme()) {
+        this.document.documentElement.classList.add('dark');
+      }
+      else {
+        this.document.documentElement.classList.remove('dark');
+      }
+    })
+  }
+
+  toggleTheme() {
+    this.isDarkTheme.update(isDark => !isDark);
+  }
 }
